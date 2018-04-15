@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,13 +23,7 @@ public class BasicMovement : MonoBehaviour {
 
 		horizontalAxis = Input.GetAxis("Horizontal");
 		verticalAxis = Input.GetAxis ("Vertical");
-		/**
-		currentRotation += horizontalAxis * turnspeed;
-
-		this.transform.eulerAngles = new Vector3 (this.transform.rotation.x,
-			currentRotation, this.transform.rotation.z);
-		*/
-	}
+		}
 
 	void FixedUpdate(){
 		/**
