@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlaySoundClipOnEnter : MonoBehaviour {
 	public AudioClip Soundeffect;
 	private AudioSource Audio;
+	public float soundCutOffTime;
 	// Use this for initialization
 	void Start () {
 		Audio = GetComponent<AudioSource> ();
@@ -12,10 +13,12 @@ public class PlaySoundClipOnEnter : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider other){
 		Audio.PlayOneShot(Soundeffect);
+		if (soundCutOffTime > 0f)
+			StartCoroutine (stopSound ());
 
 	}
 	IEnumerator stopSound(){
-		yield return new WaitForSeconds (1.8f);
+		yield return new WaitForSeconds (soundCutOffTime);
 		Audio.Stop ();
 	}
 }
